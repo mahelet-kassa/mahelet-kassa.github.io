@@ -1789,13 +1789,38 @@ header .logo a {
 	padding-top: 12rem;
 	padding-bottom: 12rem;
 }
+#portfolio .portfolio-content {
+	margin-top: 4.8rem;
+}
+#folio-wrapper {
+	margin: 0 -1.5rem;
+}
 #portfolio .folio-item {
-	padding: 0;
+	padding: 1.5rem;
 	position: relative;
 	overflow: hidden;
+	margin-bottom: 3rem;
+}
+#portfolio .folio-item .item-wrap {
+	background: #FFFFFF;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#portfolio .folio-item:hover .item-wrap {
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5px);
 }
 #portfolio .folio-item img {
 	vertical-align: middle;
+	width: 100%;
+	height: auto;
+	display: block;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -1851,15 +1876,16 @@ header .logo a {
 	color: rgba(255, 255, 255, 0.6);
 }
 #portfolio .folio-item:hover .overlay {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(255, 0, 119, 0.9);
 }
 #portfolio .folio-item:hover .folio-item-cell {
 	left: 0;
 }
 #portfolio .folio-item:hover img {
-	-webkit-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	transform: scale(1.05);
+	-webkit-transform: scale(1.08);
+	-ms-transform: scale(1.08);
+	transform: scale(1.08);
+	opacity: 0.9;
 }
 
 /**
@@ -1871,15 +1897,33 @@ header .logo a {
 	#portfolio .folio-title {
 		font-size: 3.1rem;
 	}
+	#portfolio .folio-item {
+		padding: 1.2rem;
+		margin-bottom: 2.4rem;
+	}
 }
 @media only screen and (max-width:768px) {
 	#portfolio .folio-title {
 		font-size: 2.5rem;
 	}
+	#portfolio .folio-item {
+		padding: 1rem;
+		margin-bottom: 2rem;
+	}
+	#folio-wrapper {
+		margin: 0 -1rem;
+	}
 }
 @media only screen and (max-width:400px) {
 	#portfolio .folio-title {
 		font-size: 2.2rem;
+	}
+	#portfolio .folio-item {
+		padding: 0.8rem;
+		margin-bottom: 1.5rem;
+	}
+	#folio-wrapper {
+		margin: 0 -0.8rem;
 	}
 }
 
@@ -2141,6 +2185,10 @@ header .logo a {
 	font-size: 5.4rem;
 	color: #FF0077;
 }
+.skills-list .skill i.fa {
+	font-size: 5.4rem;
+	color: #FF0077;
+}
 .skills-list h3 {
 	color: #FFFFFF;
 }
@@ -2168,6 +2216,59 @@ header .logo a {
 }
 .owl-theme .owl-controls .owl-page.active span {
 	background: #FF0077;
+}
+
+/* skills details section */
+.skills-details {
+	margin-top: 4.8rem;
+	position: relative;
+	z-index: 1;
+}
+
+.skills-categories {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.skill-category {
+	background: rgba(255, 255, 255, 0.05);
+	padding: 2.4rem;
+	border-radius: 8px;
+	border-left: 4px solid #FF0077;
+}
+
+.skill-category h4 {
+	color: #FF0077;
+	font-family: "poppins-semibold", sans-serif;
+	font-size: 1.8rem;
+	margin-bottom: 1.2rem;
+}
+
+.skill-category p {
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+	.skills-categories {
+		gap: 2rem;
+	}
+	
+	.skill-category {
+		padding: 1.8rem;
+	}
+	
+	.skill-category h4 {
+		font-size: 1.6rem;
+	}
+	
+	.skill-category p {
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+	}
 }
 
 
