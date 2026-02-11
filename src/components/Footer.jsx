@@ -1,35 +1,33 @@
 import React from 'react'
-import { smoothScroll } from '../utils/smoothScroll'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const handleBackToTop = (e) => {
-    e.preventDefault()
-    smoothScroll('#top')
-  }
-
   return (
-    <footer>
-      <div className="row">
-        <div className="col-six tab-full pull-right social">
-          <ul className="footer-social">
-            <li>
-              <a href="https://github.com/mahelet-kassa" target="_blank" rel="noopener noreferrer">
-                <i className="fa fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/mahelet-kassa/" target="_blank" rel="noopener noreferrer">
-                <i className="fa fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="col-six tab-full">
-          <div className="copyright">
-            <span>Mahelet Kassa {currentYear}</span>
+    <footer className="footer-section">
+      <div className="footer-container">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <h3>Mahelet Kassa</h3>
+            <p>Full Stack Software Engineer</p>
           </div>
+
+          <div className="footer-social">
+            <a href="https://github.com/mahelet-kassa" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mahelet-kassa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:maheletkassa1@gmail.com" aria-label="Email">
+              <i className="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>&copy; {currentYear} Mahelet Kassa. All rights reserved.</p>
+          <p className="footer-note">Built with React & Vite</p>
         </div>
       </div>
     </footer>
@@ -37,4 +35,3 @@ const Footer = () => {
 }
 
 export default Footer
-

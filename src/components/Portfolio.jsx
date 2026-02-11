@@ -16,40 +16,49 @@ const Portfolio = () => {
   }
 
   return (
-    <section id="portfolio">
-      <div className="row section-intro">
-        <div className="col-twelve">
-          <h5>Portfolio</h5>
-          <p>Click on "Launch Project" link to view the live site</p>
+    <section id="portfolio" className="portfolio-section">
+      <div className="portfolio-container">
+        <div className="section-header">
+          <span className="section-label">Portfolio</span>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-subtitle">A selection of my recent work and personal projects</p>
         </div>
-      </div>
 
-      <div className="row portfolio-content">
-        <div className="col-twelve">
-          <div id="folio-wrapper" className="block-1-2 block-mob-full stack">
-            {portfolioItems.map((item) => (
-              <div key={item.id} className="bgrid folio-item">
-                <div className="item-wrap">
-                  <img src={`/${item.image}`} alt={item.alt} loading="lazy" />
-                  <a
-                    href={`#${item.id}`}
-                    className="overlay"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      openModal(item.id)
-                    }}
+        <div className="portfolio-grid">
+          {portfolioItems.map((item) => (
+            <div key={item.id} className="portfolio-card">
+              <div className="card-image">
+                <img src={`/${item.image}`} alt={item.alt} loading="lazy" />
+                <div className="card-overlay">
+                  <button 
+                    className="view-btn"
+                    onClick={() => openModal(item.id)}
                   >
-                    <div className="folio-item-table">
-                      <div className="folio-item-cell">
-                        <h3 className="folio-title">{item.title}</h3>
-                        <span className="folio-types">{item.category}</span>
-                      </div>
-                    </div>
-                  </a>
+                    <i className="fa-solid fa-eye"></i> View Details
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="card-content">
+                <span className="card-category">{item.category}</span>
+                <h3 className="card-title">{item.title}</h3>
+                <p className="card-description">
+                  {item.description.substring(0, 100)}...
+                </p>
+                <div className="card-links">
+                  {item.liveUrl && (
+                    <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="card-link">
+                      <i className="fa-solid fa-external-link-alt"></i> Live Demo
+                    </a>
+                  )}
+                  {item.githubUrl && (
+                    <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="card-link">
+                      <i className="fa-brands fa-github"></i> Code
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -66,4 +75,3 @@ const Portfolio = () => {
 }
 
 export default Portfolio
-

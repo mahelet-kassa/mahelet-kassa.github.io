@@ -25,7 +25,7 @@ const BackToTop = () => {
   return (
     <div id="go-top" style={{ display: isVisible ? 'block' : 'none' }}>
       <a className="smoothscroll" title="Back to Top" href="#top" onClick={handleClick}>
-        <i className="fa fa-long-arrow-up"></i>
+        <i className="fa-solid fa-arrow-up"></i>
       </a>
     </div>
   )

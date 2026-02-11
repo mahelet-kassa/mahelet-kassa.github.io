@@ -1,15 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { smoothScroll } from '../utils/smoothScroll'
 
 const Header = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
     { id: 'intro', label: 'Home', href: '#intro' },
     { id: 'about', label: 'About', href: '#about' },
-    { id: 'skills', label: 'Technical Skills', href: '#skills' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
     { id: 'resume', label: 'Resume', href: '#resume' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ]
 
   const handleNavClick = (e, href) => {
@@ -18,44 +28,45 @@ const Header = ({ activeSection }) => {
     setIsMenuOpen(false)
   }
 
-  const toggleMenu = (e) => {
-    e.preventDefault()
+  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   return (
-    <header>
-      <div className="row">
-        <div className="top-bar">
-          <a className={`menu-toggle ${isMenuOpen ? 'is-clicked' : ''}`} href="#" onClick={toggleMenu}>
-            <span>Menu</span>
-          </a>
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="header-container">
+        <a href="#intro" className="logo" onClick={(e) => handleNavClick(e, '#intro')}>
+          MK
+        </a>
 
-          <div className="logo">
-            <a href="https://maheletkassa.com/">Mahelet</a>
-          </div>
+        <button 
+          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-          <nav id="main-nav-wrap" style={{ display: isMenuOpen ? 'block' : 'none' }}>
-            <ul className="main-navigation">
-              {navItems.map((item) => (
-                <li key={item.id} className={activeSection === item.id ? 'current' : ''}>
-                  <a
-                    className="smoothscroll"
-                    href={item.href}
-                    title={item.label}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+          <ul className="nav-list">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  className={activeSection === item.id ? 'active' : ''}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   )
 }
 
 export default Header
-

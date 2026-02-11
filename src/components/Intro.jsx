@@ -1,62 +1,50 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { smoothScroll } from '../utils/smoothScroll'
 
 const Intro = () => {
-  const titleRef = useRef(null)
-
-  useEffect(() => {
-    // FitText effect for responsive title
-    const title = titleRef.current
-    if (title) {
-      const handleResize = () => {
-        const width = window.innerWidth
-        let fontSize = 84
-        if (width < 960) fontSize = 42
-        else if (width < 1200) fontSize = 64
-        title.style.fontSize = `${fontSize}px`
-      }
-      handleResize()
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   const handleButtonClick = (e) => {
     e.preventDefault()
     smoothScroll('#about')
   }
 
   return (
-    <section id="intro">
-      <div className="intro-overlay"></div>
-      <div className="intro-content">
-        <div className="row">
-          <div className="col-twelve">
-            <h1 ref={titleRef}>Mahelet Kassa</h1>
-            <p className="intro-position typewriter">
-              <span>Full Stack Web Developer</span>
-            </p>
-            <a className="button stroke smoothscroll" href="#about" onClick={handleButtonClick}>
-              Get To Know Me
+    <section id="intro" className="hero-section">
+      <div className="hero-overlay"></div>
+      <div className="hero-content">
+        <div className="hero-text">
+          <span className="hero-greeting">Hello, I'm</span>
+          <h1 className="hero-name">Mahelet Kassa</h1>
+          <h2 className="hero-title">Full Stack Software Engineer</h2>
+          <p className="hero-description">
+            Building modern, scalable web applications with React, Java, Spring Boot & AWS
+          </p>
+          <div className="hero-buttons">
+            <a className="btn btn-primary" href="#about" onClick={handleButtonClick}>
+              About Me
+            </a>
+            <a className="btn btn-outline" href="#portfolio" onClick={(e) => { e.preventDefault(); smoothScroll('#portfolio') }}>
+              View My Work
             </a>
           </div>
         </div>
+        <div className="hero-social">
+          <a href="https://github.com/mahelet-kassa" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/mahelet-kassa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:maheletkassa1@gmail.com" aria-label="Email">
+            <i className="fa-solid fa-envelope"></i>
+          </a>
+        </div>
       </div>
-      <ul className="intro-social">
-        <li>
-          <a href="https://github.com/mahelet-kassa" target="_blank" rel="noopener noreferrer">
-            <i className="fa fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/mahelet-kassa/" target="_blank" rel="noopener noreferrer">
-            <i className="fa fa-linkedin"></i>
-          </a>
-        </li>
-      </ul>
+      <div className="scroll-indicator">
+        <span>Scroll</span>
+        <div className="scroll-line"></div>
+      </div>
     </section>
   )
 }
 
 export default Intro
-

@@ -2,51 +2,63 @@ import React from 'react'
 
 const About = () => {
   return (
-    <section id="about">
-      <div className="row section-intro">
-        <div className="col-twelve">
-          <h5>About</h5>
-          <h1>Allow Me To Introduce Myself.</h1>
-          <div className="intro-info">
-            <img src="images/Mahi-profile.jpg" alt="Mahelet Kassa - Full Stack Software Engineer" loading="lazy" />
-            <p className="lead">A full stack web developer!</p>
+    <section id="about" className="about-section">
+      <div className="about-container">
+        <div className="section-header">
+          <span className="section-label">About Me</span>
+          <h2 className="section-title">Get To Know Me</h2>
+        </div>
+
+        <div className="about-grid">
+          <div className="about-image">
+            <div className="image-wrapper">
+              <img src="images/Mahi-profile.jpg" alt="Mahelet Kassa - Full Stack Software Engineer" loading="lazy" />
+            </div>
+            <div className="image-decoration"></div>
           </div>
-        </div>
-      </div>
 
-      <div className="row about-content">
-        <div className="col-twelve tab-full">
-          <h3>About Me</h3>
-          <p>
-            I'm a Full Stack Software Engineer with a Bachelor's in Computer Science and 
-            Business Administration. I combine strong technical expertise with a deep understanding
-            of business operations to build software solutions that are both effective and aligned
-            with organizational goals. I'm currently expanding my skills in AI and machine learning
-            as part of my ongoing learning journey. Outside of work, I'm focused on learning new
-            technologies, developing personal projects, climbing, reading, and growing my Ethiopian coffee venture.
-          </p>
-          <p>
-            As a full-stack software engineer proficient in multiple programming
-            languages and frameworks, I consistently pursue new technologies and
-            keep abreast of industry trends and innovations. My goal is to create
-            applications that enhance company productivity, efficiency, and social impact.
-            This ambition aligns with my passion and vision
-            for using technology in business to promote social good.
-          </p>
-        </div>
-      </div>
+          <div className="about-text">
+            <h3>Full Stack Software Engineer based in Boston</h3>
+            <p>
+              I'm a Full Stack Software Engineer with a Bachelor's in Computer Science and 
+              Business Administration. I combine strong technical expertise with a deep understanding
+              of business operations to build software solutions that are both effective and aligned
+              with organizational goals.
+            </p>
+            <p>
+              I'm currently expanding my skills in AI and machine learning as part of my ongoing 
+              learning journey. My goal is to create applications that enhance company productivity, 
+              efficiency, and social impact.
+            </p>
+            
+            <div className="about-details">
+              <div className="detail-item">
+                <span className="detail-label">Location</span>
+                <span className="detail-value">Boston, MA</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Experience</span>
+                <span className="detail-value">Full Stack Development</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Education</span>
+                <span className="detail-value">B.S. Computer Science & Business</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Interests</span>
+                <span className="detail-value">AI/ML, Cloud, Startups</span>
+              </div>
+            </div>
 
-      <div className="row button-section">
-        <div className="col-twelve">
-          <p>Want to learn more?</p>
-          <a
-            href="mailto:maheletkassa1@gmail.com"
-            target="_top"
-            title="Email Me"
-            className="button button-primary"
-          >
-            Email Me
-          </a>
+            <div className="about-buttons">
+              <a href="/MAHELET KASSA.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                <i className="fa-solid fa-download"></i> Download Resume
+              </a>
+              <a href="mailto:maheletkassa1@gmail.com" className="btn btn-outline">
+                <i className="fa-solid fa-envelope"></i> Contact Me
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -54,4 +66,3 @@ const About = () => {
 }
 
 export default About
-

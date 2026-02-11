@@ -1,122 +1,105 @@
 import React from 'react'
 
 const Resume = () => {
+  const experience = [
+    {
+      title: 'Full Stack Software Engineer',
+      company: 'Professional Experience',
+      period: 'Present',
+      description: 'Developing and maintaining full-stack web applications using React, Angular, Java, Spring Boot, and AWS. Building RESTful APIs, implementing microservices architecture, and deploying cloud-based solutions.',
+      skills: ['React', 'Java', 'Spring Boot', 'AWS', 'PostgreSQL']
+    },
+    {
+      title: 'Software Developer',
+      company: 'Web Development',
+      period: 'Previous',
+      description: 'Created responsive web applications using JavaScript, TypeScript, React, and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.',
+      skills: ['JavaScript', 'TypeScript', 'Node.js', 'MongoDB']
+    }
+  ]
+
+  const education = [
+    {
+      degree: "Bachelor's Degree",
+      field: 'Computer Science & Business Administration',
+      description: 'Comprehensive program combining technical computer science fundamentals with business administration principles.'
+    }
+  ]
+
   return (
-    <section id="resume" className="grey-section">
-      <div className="row section-intro">
-        <div className="col-twelve">
-          <h5>Resume</h5>
-          <h1>More of my credentials.</h1>
-          <p className="lead">
-            A Full Stack Software Engineer with expertise in building scalable web applications 
-            and cloud solutions.
-          </p>
-        </div>
-      </div>
-
-      <div className="row resume-timeline">
-        <div className="col-twelve resume-header">
-          <h2>Work Experience</h2>
+    <section id="resume" className="resume-section">
+      <div className="resume-container">
+        <div className="section-header">
+          <span className="section-label">Resume</span>
+          <h2 className="section-title">Experience & Education</h2>
+          <p className="section-subtitle">My professional journey and qualifications</p>
         </div>
 
-        <div className="col-twelve">
-          <div className="timeline-wrap">
-            <div className="timeline-block">
-              <div className="timeline-ico">
-                <i className="fa fa-briefcase"></i>
-              </div>
-              <div className="timeline-header">
-                <h3>Full Stack Software Engineer</h3>
-                <p>Software Development</p>
-              </div>
-              <div className="timeline-content">
-                <h4>Professional Experience</h4>
-                <p>
-                  Developing and maintaining full-stack web applications using modern technologies 
-                  including React, Angular, Java, Spring Boot, and AWS. Building RESTful APIs, 
-                  implementing microservices architecture, and deploying cloud-based solutions.
-                </p>
-              </div>
+        <div className="resume-grid">
+          {/* Experience Column */}
+          <div className="resume-column">
+            <h3 className="column-title">
+              <i className="fa-solid fa-briefcase"></i> Work Experience
+            </h3>
+            <div className="timeline">
+              {experience.map((job, index) => (
+                <div key={index} className="timeline-item">
+                  <div className="timeline-marker"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-period">{job.period}</span>
+                    <h4 className="timeline-title">{job.title}</h4>
+                    <span className="timeline-company">{job.company}</span>
+                    <p className="timeline-description">{job.description}</p>
+                    <div className="timeline-skills">
+                      {job.skills.map((skill, i) => (
+                        <span key={i} className="skill-tag">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education Column */}
+          <div className="resume-column">
+            <h3 className="column-title">
+              <i className="fa-solid fa-graduation-cap"></i> Education
+            </h3>
+            <div className="timeline">
+              {education.map((edu, index) => (
+                <div key={index} className="timeline-item">
+                  <div className="timeline-marker"></div>
+                  <div className="timeline-content">
+                    <h4 className="timeline-title">{edu.degree}</h4>
+                    <span className="timeline-company">{edu.field}</span>
+                    <p className="timeline-description">{edu.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="timeline-block">
-              <div className="timeline-ico">
-                <i className="fa fa-briefcase"></i>
-              </div>
-              <div className="timeline-header">
-                <h3>Software Developer</h3>
-                <p>Web Development</p>
-              </div>
-              <div className="timeline-content">
-                <h4>Development Experience</h4>
-                <p>
-                  Created responsive web applications using JavaScript, TypeScript, React, and Node.js. 
-                  Collaborated with cross-functional teams to deliver high-quality software solutions 
-                  that meet business requirements and enhance user experience.
-                </p>
+            <h3 className="column-title" style={{ marginTop: '4rem' }}>
+              <i className="fa-solid fa-certificate"></i> Certifications
+            </h3>
+            <div className="timeline">
+              <div className="timeline-item">
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <h4 className="timeline-title">Continuous Learning</h4>
+                  <span className="timeline-company">Professional Development</span>
+                  <p className="timeline-description">
+                    Actively expanding skills in AI/ML, cloud technologies, and modern development practices.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="row resume-timeline">
-        <div className="col-twelve resume-header">
-          <h2>Education</h2>
-        </div>
-
-        <div className="col-twelve">
-          <div className="timeline-wrap">
-            <div className="timeline-block">
-              <div className="timeline-ico">
-                <i className="fa fa-graduation-cap"></i>
-              </div>
-              <div className="timeline-header">
-                <h3>Bachelor's Degree</h3>
-                <p>Computer Science & Business Administration</p>
-              </div>
-              <div className="timeline-content">
-                <h4>University Education</h4>
-                <p>
-                  Completed a comprehensive program combining technical computer science 
-                  fundamentals with business administration principles. Developed strong 
-                  analytical skills and understanding of both software development and 
-                  business operations.
-                </p>
-              </div>
-            </div>
-
-            <div className="timeline-block">
-              <div className="timeline-ico">
-                <i className="fa fa-graduation-cap"></i>
-              </div>
-              <div className="timeline-header">
-                <h3>Certifications & Continuing Education</h3>
-                <p>Professional Development</p>
-              </div>
-              <div className="timeline-content">
-                <h4>Ongoing Learning</h4>
-                <p>
-                  Continuously expanding skills in AI and machine learning, cloud technologies, 
-                  and modern software development practices. Committed to staying current with 
-                  industry trends and emerging technologies.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="row button-section">
-        <div className="col-twelve">
-          <a
-            href="Mahelet_Kassa_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Download Resume"
-            className="button button-primary"
-          >
-            Download Resume
+        <div className="resume-download">
+          <a href="/MAHELET KASSA.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+            <i className="fa-solid fa-download"></i> Download Full Resume
           </a>
         </div>
       </div>
